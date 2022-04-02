@@ -33,12 +33,13 @@ class gm_UI():
         print("btn pressed")
         randInt = rd.randint(0, len(prompts) - 1)
         self.prompt1.set("Prompt is: \n{} \n{} \n{}".format(prompts[randInt][0], prompts[randInt][1], prompts[randInt][2]))
+
         self.score1.set("Score for player 1: {}".format(self.player1_score))
         print("prompts set")
 
 prompts = [
     ["uni", "work", "strike"],
-    ["lactose", "cheese", "diarhea"],
+    ["lactose", "cheese", "diarrhoea"],
     ["five", "guys", "burgers"],
     ["shell", "water", "turtle"],
     ["music", "guitar", "cry"],
