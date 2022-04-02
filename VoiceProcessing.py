@@ -69,4 +69,6 @@ def start_AI(prompts):
     global prompt
     prompt = prompts
     ai = VP(name="Guys")
-    return ai.speechToText()
+    text = ai.speechToText()
+    print(text)
+    return text
