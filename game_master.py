@@ -1,5 +1,5 @@
-import json
-
+import tkinter as tk
+import random as rd
 
 prompts = [
     ["uni", "work", "strike"],
@@ -11,11 +11,18 @@ prompts = [
     ["table", "chair", "spoon"]
     ]
 
-dictionary = {
-    "prompt" : prompts[0],
-    "score" : 100
-}
+window = tk.Tk()
+currPrompt = prompts[rd.randint(0, len(prompts))]
+label = tk.Label (text="The prompt is: \n {} \n {} \n {}".format(currPrompt[0], currPrompt[1], currPrompt[2]) )
+label.pack()
 
-json_object = json.dumps(dictionary, indent = 4)
-file = open ("sample.json", "wt") 
-file.write(json_object)
+button = tk.Button(
+    text="Click me!",
+    width=25,
+    height=5,
+    bg="blue",
+    fg="yellow",
+)
+button.pack()
+
+window.mainloop()
