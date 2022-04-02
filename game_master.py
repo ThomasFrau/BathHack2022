@@ -1,4 +1,5 @@
-import random as r
+import json
+
 
 prompts = [
     ["uni", "work", "strike"],
@@ -10,6 +11,11 @@ prompts = [
     ["table", "chair", "spoon"]
     ]
 
-r.seed(42)
-for i in range(10):
-    print(prompts[r.randint(0, len(prompts))])
+dictionary = {
+    "prompt" : prompts[0],
+    "score" : 100
+}
+
+json_object = json.dumps(dictionary, indent = 4)
+file = open ("sample.json", "wt") 
+file.write(json_object)
