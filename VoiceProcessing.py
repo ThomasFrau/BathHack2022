@@ -29,17 +29,12 @@ class VP():
             recognizer.adjust_for_ambient_noise(mic)
             audio = recognizer.listen(mic)
         try:
-            print(current_player)
             print(prompt)
             rhymes = []
             for word in prompt:
                 rhymes += pronouncing.rhymes(word)
             #print(rhymes)
             self.text = recognizer.recognize_google(audio)
-            if(current_player == "player1"):   
-                print("Player 1 said --> ", self.text)
-            else:
-                print("Player 2 said --> ", self.text)
             words = word_tokenize(self.text)
             print(words)
             stop_words = set(stopwords.words("english"))
@@ -54,12 +49,6 @@ class VP():
             ##text_processing(self.text)
         except sr.UnknownValueError:
             print("me -->  ERROR")
-        print("Test")
-        if(current_player == "player1"):   
-            current_player = "player2"
-        else:
-            current_player = "player1"
-        print(current_player)
             
     def wake_up(self, text):
         return True if self.name in text.lower() else False
