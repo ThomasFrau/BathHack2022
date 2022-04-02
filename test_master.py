@@ -13,4 +13,4 @@ class Test_master():
             ["dsa", "dna", "song"],
             ["table", "chair", "spoon"]
             ]
-        return (prompts[r.randint(0, len(prompts))])
+        return (prompts[r.randint(0, len(prompts)-1)])
