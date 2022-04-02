@@ -1,7 +1,7 @@
 import tkinter as tk
 import random as rd
 
-from matplotlib.pyplot import text
+from VoiceProcessing import start_AI
 
 class gm_UI():
     def __init__(self):
@@ -33,6 +33,7 @@ class gm_UI():
         print("btn pressed")
         randInt = rd.randint(0, len(prompts) - 1)
         self.prompt1.set("Prompt is: \n{} \n{} \n{}".format(prompts[randInt][0], prompts[randInt][1], prompts[randInt][2]))
+        start_AI(prompts[randInt])
 
         self.score1.set("Score for player 1: {}".format(self.player1_score))
         print("prompts set")
