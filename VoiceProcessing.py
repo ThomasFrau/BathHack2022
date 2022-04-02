@@ -9,8 +9,7 @@ import pronouncing
 nltk.download('punkt')
 nltk.download('stopwords')
 
-global current_player 
-current_player = "player1"
+global prompt
 
 class VP():
     def __init__(self, name):
@@ -22,7 +21,7 @@ class VP():
         print("tokenising!!")
         
     def speechToText(self):
-        global current_player
+        global prompt
         recognizer = sr.Recognizer()
         with sr.Microphone() as mic:
             #print(mic.list_microphone_names())
@@ -31,7 +30,6 @@ class VP():
             audio = recognizer.listen(mic)
         try:
             print(current_player)
-            prompt = Test_master.prompts()
             print(prompt)
             rhymes = []
             for word in prompt:
@@ -77,7 +75,9 @@ class VP():
 
 
 # Run the AI
-if __name__ == "__main__":
+def start_AI(prompts):
+    global prompt
+    prompt = prompts
     ai = VP(name="Guys")
     while True:
         ai.speechToText()
