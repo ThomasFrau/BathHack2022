@@ -14,10 +14,6 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get("/", (req, res) =>{
-    res.sendFile(path.join(__dirname, "../client/index.html"))
-})
-
 app.get("/poll", async(req, res) =>{
     let data = JSON.parse(await fs.readFile(dataFile, "utf-8"));
     const totalVotes = Object.values(data).reduce((total, n) => total += n, 0);
