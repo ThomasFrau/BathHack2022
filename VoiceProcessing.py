@@ -21,10 +21,6 @@ class VP():
         print("--- starting up", name, "---")
         self.name = name
         
-    @staticmethod
-    def text_processing(text):
-        print("tokenising!!")
-        
     def speechToText(self):
         global prompt, score
         recognizer = sr.Recognizer()
@@ -59,20 +55,7 @@ class VP():
             #print("me -->  ERROR")
             score = 0
         return score
-            
-    def wake_up(self, text):
-        return True if self.name in text.lower() else False
-
-    @staticmethod
-    def text_to_speech(text):
-        print("ai --> ", text)
-        speaker = gTTS(text=text, lang="en", slow=False)
-        speaker.save("res.mp3")
-        os.system("start res.mp3")  #macbook->afplay | windows->start
-        os.remove("res.mp3")
         
-
-
 # Run the AI
 def start_AI(prompts):
     global prompt, score
