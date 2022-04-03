@@ -10,18 +10,19 @@ class gm_UI():
         self.player2_score = 0
         self.flag = False
         self.root = tk.Tk()
+        self.root.configure(bg = "#1E1B1B")
         self.prompt1 = tk.StringVar()
         self.prompt1.set("Press the button for prompts")
-        self.prompt = tk.Label(self.root, textvariable=self.prompt1, font=("Helvetica", 25))
-        self.button1 = tk.Button(self.root, text= "Click me for prompts", command= self.stuff1, font=("Helvetica", 25))
-        self.button2 = tk.Button(self.root, text= "Click me to start AI", command= self.stuff2, font=("Helvetica", 25))
+        self.prompt = tk.Label(self.root, textvariable=self.prompt1, font=("Helvetica", 25), bg = "#1E1B1B", fg = "white")
+        self.button1 = tk.Button(self.root, text= "Click me for prompts", command= self.stuff1, font=("Helvetica", 25), bg = "#D3CDCB")
+        self.button2 = tk.Button(self.root, text= "Click me to start AI", command= self.stuff2, font=("Helvetica", 25), bg = "#D3CDCB")
 
         self.score1 = tk.StringVar()
         self.score1.set("Score for player 1: {}".format(0))
-        self.score1L = tk.Label(self.root, textvariable=self.score1, font=("Helvetica", 25))
+        self.score1L = tk.Label(self.root, textvariable=self.score1, font=("Helvetica", 25), bg = "#1E1B1B", fg = "white")
         self.score2 = tk.StringVar()
         self.score2.set("Score for player 2: {}".format(0))
-        self.score2L = tk.Label(self.root, textvariable=self.score2, font=("Helvetica", 25))
+        self.score2L = tk.Label(self.root, textvariable=self.score2, font=("Helvetica", 25), bg = "#1E1B1B", fg = "white")
  
         self.button1.pack()
         self.button2.pack()
@@ -51,12 +52,16 @@ class gm_UI():
 
 prompts = [
     ["uni", "work", "strike"],
-    ["lactose", "cheese", "diarrhoea"],
-    ["five", "guys", "burgers"],
-    ["shell", "water", "turtle"],
-    ["music", "guitar", "cry"],
-    ["dsa", "dna", "song"],
-    ["table", "chair", "spoon"]
+    ["awesome", "paradise", "cry"],
+    ["street", "gangster", "block"],
+    ["coding", "debug", "git"],
+    ["duck", "lake", "library"],
+    ["cowboy", "west", "horse"],
+    ["church", "god", "religion"],
+    ["hack", "sleep", "timer"],
+    ["London", "ends", "shank"],
+    ["live", "love", "laugh"],
+    ["hot", "sun", "mum"],
     ]
 
 app = gm_UI()

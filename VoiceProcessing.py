@@ -37,7 +37,7 @@ class VP():
             rhymes = []
             for word in prompt:
                 rhymes += pronouncing.rhymes(word)
-            #print(rhymes)
+            print(rhymes)
             self.text = recognizer.recognize_google(audio)
             words = word_tokenize(self.text)
             print(words)
