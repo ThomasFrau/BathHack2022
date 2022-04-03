@@ -9,6 +9,16 @@ class Poll{
         `)
 
         this._refresh()
+
+        const pageAccessedByReload = (
+            (window.performance.navigation && window.performance.navigation.type === 1) ||
+              window.performance
+                .getEntriesByType('navigation')
+                .map((nav) => nav.type)
+                .includes('reload')
+          );
+        if(pageAccessedByReload) this.selected = null;
+        
     }
 
     async _refresh() {

@@ -7,4 +7,5 @@
  pipwin<br>
  pyaudio (pipwin install pyaudio)<br>
  numpy<br>
- pronouncing
+ pronouncing<br>
+ pygame
