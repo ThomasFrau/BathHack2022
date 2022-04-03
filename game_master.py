@@ -1,5 +1,6 @@
 import tkinter as tk
 import random as rd
+import json
 
 from VoiceProcessing import start_AI
 
@@ -32,11 +33,27 @@ class gm_UI():
         self.root.geometry("500x450+10+10")
         self.root.mainloop()
 
+    def readJSON(self):
+        file = open("polling/server/data.json", "r")
+        jsonObject = json.load(file)
+        file.close()
+        return jsonObject["Rapper1"], jsonObject["Rapper2"]
+
+    def clearJSON(self):
+        file = open("polling/server/data.json", "w")
+        data = {
+            "Rapper1":0,
+            "Rapper2":0
+        }
+        json.dump(data, file)
+        file.close()
+
     def stuff1(self):
         global randInt
         self.flag = not self.flag
         print("btn pressed")
         randInt = rd.randint(0, len(prompts) - 1)
+        print(self.clearJSON())
         if self.flag:
             self.prompt1.set("Player 1 \n Prompt is: \n{} \n{} \n{}".format(prompts[randInt][0], prompts[randInt][1], prompts[randInt][2]))
         else:
