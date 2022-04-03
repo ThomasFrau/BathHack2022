@@ -8,6 +8,7 @@ import nltk
 import pronouncing
 import pygame
 import random as rd
+import time
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -55,7 +56,8 @@ class VP():
     
             ##text_processing(self.text)
         except sr.UnknownValueError:
-            print("me -->  ERROR")
+            #print("me -->  ERROR")
+            score = 0
         return score
             
     def wake_up(self, text):
@@ -83,6 +85,7 @@ def start_AI(prompts):
     else:
         pygame.mixer.music.load("beats2.wav")
     pygame.mixer.music.play(-1)
+    time.sleep(2)
     ai = VP(name="Guys")
     text = ai.speechToText()
     pygame.mixer.music.stop()
