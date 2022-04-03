@@ -53,7 +53,6 @@ class gm_UI():
         self.flag = not self.flag
         print("btn pressed")
         randInt = rd.randint(0, len(prompts) - 1)
-        print(self.clearJSON())
         if self.flag:
             self.prompt1.set("Player 1 \n Prompt is: \n{} \n{} \n{}".format(prompts[randInt][0], prompts[randInt][1], prompts[randInt][2]))
         else:
