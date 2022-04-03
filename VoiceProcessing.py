@@ -6,6 +6,7 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 import nltk
 import pronouncing
+import pygame
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -74,7 +75,11 @@ def start_AI(prompts):
     global prompt, score
     score = 0
     prompt = prompts
+    pygame.mixer.init()
+    pygame.mixer.music.load("beats1.wav")
+    pygame.mixer.music.play(-1)
     ai = VP(name="Guys")
     text = ai.speechToText()
+    pygame.mixer.music.stop()
     print(text)
     return text

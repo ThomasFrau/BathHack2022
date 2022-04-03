@@ -3,7 +3,6 @@ import random as rd
 
 from VoiceProcessing import start_AI
 
-
 global randInt
 class gm_UI():
     def __init__(self):
@@ -32,7 +31,6 @@ class gm_UI():
         self.score2L.pack()
         self.root.mainloop()
 
-
     def stuff1(self):
         global randInt
         self.flag = not self.flag
@@ -42,7 +40,6 @@ class gm_UI():
             self.prompt1.set("Player 1 \n Prompt is: \n{} \n{} \n{}".format(prompts[randInt][0], prompts[randInt][1], prompts[randInt][2]))
         else:
             self.prompt1.set("Player 2 \n Prompt is: \n{} \n{} \n{}".format(prompts[randInt][0], prompts[randInt][1], prompts[randInt][2]))
-
 
     def stuff2(self):
         if(self.flag):
