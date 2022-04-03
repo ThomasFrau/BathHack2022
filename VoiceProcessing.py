@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 import nltk
 import pronouncing
 import pygame
+import random as rd
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -76,7 +77,11 @@ def start_AI(prompts):
     score = 0
     prompt = prompts
     pygame.mixer.init()
-    pygame.mixer.music.load("beats1.wav")
+    randInt = rd.randint(0, 1)
+    if (randInt == 0):
+        pygame.mixer.music.load("beats1.wav")
+    else:
+        pygame.mixer.music.load("beats2.wav")
     pygame.mixer.music.play(-1)
     ai = VP(name="Guys")
     text = ai.speechToText()
