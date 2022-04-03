@@ -10,6 +10,8 @@ nltk.download('punkt')
 nltk.download('stopwords')
 
 global prompt
+global score
+score = 0
 
 class VP():
     def __init__(self, name):
@@ -21,7 +23,7 @@ class VP():
         print("tokenising!!")
         
     def speechToText(self):
-        global prompt
+        global prompt, score
         recognizer = sr.Recognizer()
         with sr.Microphone() as mic:
             #print(mic.list_microphone_names())
@@ -40,16 +42,19 @@ class VP():
             stop_words = set(stopwords.words("english"))
             filtered_list = [word for word in words if word.casefold() not in stop_words]
             print(filtered_list)
-            for word in filtered_list:
-                if word in prompt:
+            score += len(filtered_list)
+            for word in words:
+                if word.casefold() in prompt:
                     print(word)
-                if word in rhymes:
+                    score += 10
+                if word.casefold() in rhymes:
                     print(word)
+                    score += 20
     
             ##text_processing(self.text)
         except sr.UnknownValueError:
             print("me -->  ERROR")
-        return 5
+        return score
             
     def wake_up(self, text):
         return True if self.name in text.lower() else False
@@ -66,7 +71,8 @@ class VP():
 
 # Run the AI
 def start_AI(prompts):
-    global prompt
+    global prompt, score
+    score = 0
     prompt = prompts
     ai = VP(name="Guys")
     text = ai.speechToText()
